@@ -1,0 +1,37 @@
+baseURL = "https://yavuzdenizli.com/"
+defaultContentLanguage = "en"
+languageCode = "en"
+title = "Yavuz Denizli"
+
+enableRobotsTXT = true
+paginate = 10
+summaryLength = 0
+
+buildDrafts = false
+buildFuture = false
+
+# Blowfish tema
+theme = "blowfish"
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+  series = "series"
+
+# Related content
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "series"
+    weight = 50
+  [[related.indices]]
+    name = "date"
+    weight = 10
+

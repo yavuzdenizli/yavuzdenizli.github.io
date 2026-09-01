@@ -1,0 +1,26 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Yavuz Denizli"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/secondary-logo.png"
+  # description = "My awesome website"
+  # copyright = "Copy, _right?_ :thinking_face:"
+
+ [params.author]
+  name = "Yavuz Denizli"
+  image = "img/avatar.jpg"
+  headline = "Aspiring offensive security engineer"
+  bio = "Engineering student at Politecnico di Torino. Learning pentesting through HTB, home labs, and CTFs."
+  links = [
+    { github = "https://github.com/yavuzdenizli" },
+    { linkedin = "https://linkedin.com/in/yavuzdenizli" },
+    { email = "mail to :ysdenizli.1@gmail.com" }
+  ]

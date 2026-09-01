@@ -1,0 +1,223 @@
+/* ===== Cyberpunk: Edgerunners animations & effects ===== */
+
+/* Animated grid background — subtle, homepage only */
+body {
+  position: relative;
+  background-color: rgb(10 10 20);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(252, 238, 10, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 46, 99, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+  animation: gridPulse 8s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Ensure content sits above the grid */
+main, header, footer { position: relative; z-index: 1; }
+
+/* ===== Profile hero — neon name glow ===== */
+/* ===== Profile hero — name in MAGENTA ===== */
+.profile h1 {
+  color: rgb(255 46 99) !important;
+  text-shadow:
+    0 0 10px rgba(255, 46, 99, 0.5),
+    0 0 20px rgba(255, 46, 99, 0.3),
+    0 0 30px rgba(255, 46, 99, 0.2);
+  animation: neonFlicker 4s ease-in-out infinite;
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(255, 46, 99, 0.5),
+      0 0 20px rgba(255, 46, 99, 0.3),
+      0 0 30px rgba(255, 46, 99, 0.2);
+  }
+  45% {
+    text-shadow:
+      0 0 15px rgba(255, 46, 99, 0.7),
+      0 0 25px rgba(255, 46, 99, 0.5),
+      0 0 40px rgba(255, 46, 99, 0.4);
+  }
+  50% {
+    text-shadow: none;
+    opacity: 0.85;
+  }
+  55% {
+    text-shadow:
+      0 0 15px rgba(255, 46, 99, 0.7),
+      0 0 25px rgba(255, 46, 99, 0.5);
+  }
+}
+
+@keyframes neonFlicker {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(252, 238, 10, 0.5),
+      0 0 20px rgba(252, 238, 10, 0.3),
+      0 0 30px rgba(255, 46, 99, 0.2);
+  }
+  45% {
+    text-shadow:
+      0 0 15px rgba(252, 238, 10, 0.7),
+      0 0 25px rgba(252, 238, 10, 0.5),
+      0 0 40px rgba(255, 46, 99, 0.4);
+  }
+  50% {
+    text-shadow: none;
+    opacity: 0.85;
+  }
+  55% {
+    text-shadow:
+      0 0 15px rgba(252, 238, 10, 0.7),
+      0 0 25px rgba(252, 238, 10, 0.5);
+  }
+}
+
+/* ===== Avatar — magenta neon border ===== */
+.profile img,
+img.rounded-full {
+  position: relative;
+  box-shadow:
+    0 0 0 3px rgb(10 10 20),
+    0 0 0 5px rgb(255 46 99),
+    0 0 20px rgba(255, 46, 99, 0.6),
+    0 0 40px rgba(255, 46, 99, 0.4);
+  animation: avatarGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes avatarGlow {
+  from {
+    box-shadow:
+      0 0 0 3px rgb(10 10 20),
+      0 0 0 5px rgb(255 46 99),
+      0 0 20px rgba(255, 46, 99, 0.6),
+      0 0 40px rgba(255, 46, 99, 0.4);
+  }
+  to {
+    box-shadow:
+      0 0 0 3px rgb(10 10 20),
+      0 0 0 5px rgb(230 0 70),
+      0 0 30px rgba(255, 46, 99, 0.8),
+      0 0 60px rgba(255, 46, 99, 0.5);
+  }
+}
+
+/* ===== Menu — neon underline on hover ===== */
+header nav a {
+  position: relative;
+  transition: color 0.2s;
+}
+
+header nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgb(252 238 10), rgb(255 46 99));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 8px rgba(252, 238, 10, 0.6);
+}
+
+header nav a:hover::after {
+  transform: scaleX(1);
+}
+
+header nav a:hover {
+  color: rgb(252 238 10) !important;
+  text-shadow: 0 0 8px rgba(252, 238, 10, 0.5);
+}
+
+/* ===== Section headings ("Recent") — magenta glow ===== */
+h2 {
+  color: rgb(255 46 99) !important;
+  text-shadow:
+    0 0 8px rgba(255, 46, 99, 0.4),
+    0 0 16px rgba(255, 46, 99, 0.2);
+}
+
+/* ===== Links in body — cyberpunk color + hover glitch ===== */
+article a,
+main a {
+  color: rgb(252 238 10);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(252, 238, 10, 0.4);
+  transition: all 0.2s;
+}
+
+article a:hover,
+main a:hover {
+  color: rgb(255 46 99);
+  border-bottom-color: rgb(255 46 99);
+  text-shadow: 0 0 8px rgba(255, 46, 99, 0.6);
+}
+
+/* ===== Recent posts — hover accent bar ===== */
+.recent article,
+main article {
+  position: relative;
+  padding-left: 1rem;
+  transition: all 0.3s;
+}
+
+.recent article::before,
+main article::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgb(252 238 10), rgb(255 46 99));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.recent article:hover::before,
+main article:hover::before {
+  opacity: 1;
+}
+
+/* ===== Scroll bar — cyberpunk style ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(10 10 20);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgb(252 238 10), rgb(255 46 99));
+  border-radius: 5px;
+}
+
+/* ===== Selection color ===== */
+::selection {
+  background: rgb(255 46 99);
+  color: rgb(10 10 20);
+}
+
+/* ===== Reduce motion for accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
